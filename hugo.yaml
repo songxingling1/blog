@@ -27,6 +27,7 @@ menu:
 permalinks:
     post: /p/:slug/
     page: /:slug/
+    encrypted: /e/:slug/
 
 markup:
     highlight:
