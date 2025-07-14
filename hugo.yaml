@@ -1,7 +1,8 @@
-baseURL: https://example.org/
+baseURL: https://blog.songxinglin.qzz.io/
 languageCode: en-us
 title: "SXL's Blog"
 theme: stack
+enableRobotsTXT: true
 params:
     article:
         math: true
@@ -15,6 +16,7 @@ params:
               params:
                   limit: 5
             - type: tag-cloud
+    favicon: /favicon.ico
 
 menu:
     main:
