@@ -9,3 +9,21 @@ params:
     widgets:
         page:
             - type: toc
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: tag-cloud
+
+menu:
+    main:
+        - name: Tags
+          url: /tags
+          weight: 40
+          params:
+              icon: tag
+
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
