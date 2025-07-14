@@ -40,3 +40,4 @@ jobs:
           publish_dir: ./public
           publish_branch: main
           external_repository: songxingling1/songxingling1.github.io
+          cname: songxinglin.qzz.io
