@@ -24,8 +24,7 @@ jobs:
       - name: Publish
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.TOKEN }}
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: main
-          external_repository: songxingling1/songxingling1.github.io
+          publish_branch: gh-page
           cname: songxinglin.qzz.io
