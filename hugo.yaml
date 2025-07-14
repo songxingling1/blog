@@ -1,0 +1,11 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: "SXL's Blog"
+theme: stack
+params:
+    article:
+        math: true
+        toc: true
+    widgets:
+        page:
+            - type: toc
