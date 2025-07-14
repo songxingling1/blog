@@ -1,0 +1,45 @@
+name: Build Hugo Publish To Github Pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: latest
+      - name: Build
+        run: hugo --minify
+      - name: Encrypt
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+          npm install staticrypt -g
+          staticrypt ./public/e/ -r -p "$PASSWORD" --short -d ./public/
+
+      - name: Publish to GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+        with:
+          dir: ./public
+          # The name of the remote branch that publishing source for GitHub Pages site
+          branch: main
+          # The remote repository that publishing source for GitHub Pages site, defaults to current repo and is formatted like 'user/repo-name'
+          repo: songxingling1/songxingling1.github.io
+          # The personal access token that authorize repo access
+          token: ${{ secrets.GITHUB_TOKEN }}
