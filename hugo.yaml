@@ -17,6 +17,19 @@ params:
                   limit: 5
             - type: tag-cloud
     favicon: /favicon.ico
+    comments:
+        enabled: true
+        provider: giscus
+        giscus:
+            repo: songxingling1/blog
+            repoID: R_kgDOPMtQqQ
+            category: Giscus
+            categoryID: DIC_kwDOPMtQqc4Cs-PU
+            mapping: pathname
+            lightTheme: light
+            darkTheme: dark
+            reactionsEnabled: 1
+            emitMetadata: 0
 
 menu:
     main:
