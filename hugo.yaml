@@ -4,52 +4,52 @@ title: "SXL's Blog"
 theme: stack
 enableRobotsTXT: true
 params:
-    article:
-        math: true
-        toc: true
-    widgets:
-        page:
-            - type: toc
-        homepage:
-            - type: search
-            - type: archives
-              params:
-                  limit: 5
-            - type: tag-cloud
-    favicon: /favicon.ico
-    comments:
-        enabled: true
-        provider: giscus
-        giscus:
-            repo: songxingling1/blog
-            repoID: R_kgDOPMtQqQ
-            category: Giscus
-            categoryID: DIC_kwDOPMtQqc4Cs-PU
-            mapping: pathname
-            lightTheme: light
-            darkTheme: dark
-            reactionsEnabled: 1
-            emitMetadata: 0
+  article:
+    math: true
+    toc: true
+  widgets:
+    page:
+      - type: toc
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: tag-cloud
+  favicon: /favicon.ico
+  comments:
+    enabled: true
+    provider: giscus
+    giscus:
+      repo: songxingling1/blog
+      repoID: R_kgDOPMtQqQ
+      category: Giscus
+      categoryID: DIC_kwDOPMtQqc4Cs-PU
+      mapping: pathname
+      lightTheme: light
+      darkTheme: dark
+      reactionsEnabled: 1
+      emitMetadata: 0
 
 menu:
-    main:
-        - name: Tags
-          url: /tags
-          weight: 40
-          params:
-              icon: tag
+  main:
+    - name: Tags
+      url: /tags
+      weight: 40
+      params:
+        icon: tag
 
 permalinks:
-    post: /p/:slug/
-    page: /:slug/
-    encrypted: /e/:slug/
+  post: /p/:slug/
+  page: /:slug/
+  encrypted: /e/:slug/
 
 markup:
-    highlight:
-        style: catppuccin-frappe
-        codeFences: true
-        guessSyntax: true
-        lineNoStart: 1
-        lineNos: true
-        lineNumbersInTable: true
-        tabWidth: 4
+  highlight:
+    style: catppuccin-frappe
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4
