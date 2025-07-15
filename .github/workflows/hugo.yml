@@ -23,23 +23,18 @@ jobs:
           extended: true
       - name: Build
         run: hugo --minify
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3.0.1
-        with:
-          # Path of the directory containing the static assets.
-          path: ./public
   deploy:
     needs: build
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
     environment:
-      name: gh-pages
+      name: netlify-pages
       url: ${{ vars.OUTPUT_URL }}
     runs-on: ubuntu-22.04
     steps:
-      - name: Deploy GitHub Pages site
-        uses: actions/deploy-pages@v4.0.5
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
         with:
-          # GitHub token
-          token: ${{ secrets.GITHUB_TOKEN }}
+          publish-dir: './public'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
