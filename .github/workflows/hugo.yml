@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +26,16 @@ jobs:
         with:
           # Path of the directory containing the static assets.
           path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: gh-pages
+      url: ${{ vars.OUTPUT_URL }}
+    runs-on: ubuntu-22.04
+    steps:
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v4.0.5
         with:
