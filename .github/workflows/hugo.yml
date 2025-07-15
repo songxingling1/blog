@@ -6,11 +6,16 @@ on:
       - main  # Set a branch to deploy
     paths:
       - '**.md'
+      - '**.yml'
+      - '**.yaml'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-22.04
+    environment:
+      name: netlify-pages
+      url: ${{ vars.OUTPUT_URL }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -23,13 +28,6 @@ jobs:
           extended: true
       - name: Build
         run: hugo --minify
-  deploy:
-    needs: build
-    environment:
-      name: netlify-pages
-      url: ${{ vars.OUTPUT_URL }}
-    runs-on: ubuntu-22.04
-    steps:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
