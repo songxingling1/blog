@@ -1,4 +1,4 @@
-name: Build Hugo and Publish To Github Pages
+name: Build Hugo and Publish To Netlify Pages
 
 on:
   push:
