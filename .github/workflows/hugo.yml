@@ -28,10 +28,12 @@ jobs:
           extended: true
       - name: Build
         run: hugo --minify
-      - name: Publish
-        uses: netlify/actions/cli@master
+      - name: Publish to Netlify
+        uses: nwtgck/actions-netlify@v3.0
         with:
-          args: deploy --dir=public --prod
+          publish-dir: './public'
+          production-deploy: true
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        timeout-minutes: 1
